@@ -4,11 +4,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Select from "@material-ui/core/Select";
 import "./App.css";
 import AreaChart from "./components/AreaChart";
 import { fetchCountries } from "./api";
+
+import covid19Logo from "./covid-19.svg";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -32,6 +35,15 @@ const App = () => {
       <CssBaseline />
       <Container maxWidth="lg">
         <Grid container>
+          <img
+            src={covid19Logo}
+            alt="Logo"
+            style={{
+              marginTop: 20,
+              width: 100,
+              height: 100,
+            }}
+          />
           <FormControl className={classes.formControl}>
             <Select
               labelId="countries"
@@ -48,8 +60,10 @@ const App = () => {
           </FormControl>
 
           <Grid item xs={12}>
-            {/* Chart */}
-            <AreaChart country={country} />
+            <Paper>
+              {/* Chart */}
+              <AreaChart country={country} />
+            </Paper>
           </Grid>
         </Grid>
       </Container>
